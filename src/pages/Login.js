@@ -55,8 +55,9 @@ const Login = () => {
                   <p>Forgot Password?</p>
                   <p>Register</p>
               </div>
-              <div>
+              <div className="d-flex justify-content-between">
                   <button>Log In</button>
+                  <button>Log In with Google</button>
               </div>
             </form>
           </div>
