@@ -1,11 +1,11 @@
-import React from 'react';
-import Sidebar from '../component/Sidebar'
+import React, { useState } from 'react';
+import Sidebar from '../component/Sidebar';
+
 
 const Dashboard = () => {
+    
     return (
-        <div>
-            <Sidebar />
-        </div>
+        <Sidebar />
     )
 }
 

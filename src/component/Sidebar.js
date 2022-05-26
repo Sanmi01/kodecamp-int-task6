@@ -1,29 +1,35 @@
-import React from "react";
-import SidebarMenu, { SidebarMenuNav } from "react-bootstrap-sidebar-menu";
+import React, { useState } from 'react';
+import SidebarIcon from './SidebarIcon';
+import SidebarBody from './SidebarBody';
 
 const Sidebar = () => {
-  return (
-    <div>
-      <SidebarMenu>
-        <SidebarMenu.Header>
-          <SidebarMenu.Brand>ABC</SidebarMenu.Brand>
-          <SidebarMenu.Toggle />
-        </SidebarMenu.Header>
-        <SidebarMenu.Body>
-        <SidebarMenu.Nav>
-        <SidebarMenu.Nav.Link>
-        <SidebarMenu.Nav.Icon>
-          Ic
-        </SidebarMenu.Nav.Icon>
-        <SidebarMenu.Nav.Title>
-          TITLE
-        </SidebarMenu.Nav.Title>
-      </SidebarMenu.Nav.Link> 
-        </SidebarMenu.Nav>
-        </SidebarMenu.Body>
-      </SidebarMenu>
-    </div>
-  );
-};
+    const [collapsed, setCollapsed] = useState(false);
+    const [toggled, setToggled] = useState(false);
+    
 
-export default Sidebar;
+    const handleCollapsedChange = (checked) => {
+        setCollapsed(checked);
+    };
+
+    const handleToggleSidebar = (value) => {
+        setToggled(value);
+    };
+
+    return (
+        <div className={`app ${toggled ? 'toggled' : ''}`}>
+            <SidebarBody
+                collapsed={collapsed}
+                toggled={toggled}
+                handleToggleSidebar={handleToggleSidebar}
+            />
+            <SidebarIcon
+                toggled={toggled}
+                collapsed={collapsed}
+                handleToggleSidebar={handleToggleSidebar}
+                handleCollapsedChange={handleCollapsedChange}
+            />
+        </div>
+    )
+}
+
+export default Sidebar
