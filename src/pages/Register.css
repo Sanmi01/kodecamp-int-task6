@@ -1,0 +1,11 @@
+#register-page label {
+    /* display: block !important; */
+    margin: 0.25rem;
+}
+
+#register-page input {
+    background: #f1eeee;
+    border-radius: 25px;
+    padding: 5px 25px;
+    min-width: 80%;
+}
