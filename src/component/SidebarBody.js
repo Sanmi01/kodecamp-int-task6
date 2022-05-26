@@ -8,7 +8,7 @@ const SidebarBody = ({ collapsed, toggled, handleToggleSidebar}) => {
 
   return (
       <>
-    <div>
+    {/* <div className="h-100"> */}
       <ProSidebar
         collapsed={collapsed}
       toggled={toggled}
@@ -54,7 +54,7 @@ const SidebarBody = ({ collapsed, toggled, handleToggleSidebar}) => {
         </div>
       </SidebarFooter>
       </ProSidebar>
-    </div>
+    {/* </div> */}
     </>
   );
 };

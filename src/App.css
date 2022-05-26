@@ -1,2 +1,67 @@
 .App {
 }
+
+.sideBar-usage {
+    height: fit-content;
+  display: flex;
+  position: relative;
+}
+
+.sideBar-usage .btn-toggle {
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    background: #353535;
+    color: #fff;
+    text-align: center;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+}
+
+.sideBar-usage .sidebar-btn-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+  }
+
+  .sideBar-usage .sidebar-btn {
+    transition: width 0.3s;
+    width: 150px;
+    padding: 1px 15px;
+    border-radius: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #adadad;
+    text-decoration: none;
+    margin: 0 auto;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    }
+
+  .sideBar-usage span {
+    margin-left: 5px;
+    font-size: 13px;
+  }
+
+  .sideBar-usage .collapsed .sidebar-btn {
+      display: inline-block;
+      line-height: 40px;
+      padding: 0;
+  }
+
+  .sideBar-usage footer {
+      margin-top: auto;
+  }
+
+  @media (max-width: 767px) {
+    .sideBar-usage .btn-toggle {
+      display: flex;
+    }
+}
