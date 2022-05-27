@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import Sidebar from '../component/Sidebar';
 import './Dashboard.css'
+import { useAuth } from '../contexts/AuthContext';
 
 
 const Dashboard = () => {
+    const { currentUser } = useAuth()
+    console.log(currentUser)
     
     return (
         <>
@@ -16,7 +19,7 @@ const Dashboard = () => {
                         <p>Oluwasanmi Awelewa</p>
                     </div>
                     <div className="col-md-6 p-3 text-center">
-                        <img class="img-fluid" src="https://i.postimg.cc/GtXnW3tq/undraw-welcome-cats-thqn-removebg-preview.png" alt="welcome" />
+                        <img className="img-fluid" src="https://i.postimg.cc/GtXnW3tq/undraw-welcome-cats-thqn-removebg-preview.png" alt="welcome" />
                     </div>
                 </div>
             </div>

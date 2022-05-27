@@ -13,18 +13,18 @@ const Profile = () => {
                     <div className="text-center">
                         <div style={{
             width: '30rem',
-            height: '30rem'
+            height: '10rem'
           }}>
-                        <img className="img-fluid rounded-circle" src="https://i.postimg.cc/667zCLZ8/pexels-anastasiya-gepp-1462630-removebg-preview.png" alt="img" />
+                        <img className="img-fluid rounded-circle" src={localStorage.getItem("profilePic")} alt="img" />
                         </div>
                         <div>
                             <div className="d-flex justify-content-between">
                                 <p>Full name</p>
-                                <p>Oluwasanmi Awelewa</p>
+                                <p>{localStorage.getItem("name")}</p>
                             </div>
                             <div className="d-flex justify-content-between">
                                 <p>Email</p>
-                                <p>Supersanmi01@gmail.com</p>
+                                <p>{localStorage.getItem("email")}</p>
                             </div>
                         </div>
                     </div>

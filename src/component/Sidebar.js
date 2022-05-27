@@ -14,6 +14,7 @@ const Sidebar = () => {
     const handleToggleSidebar = (value) => {
         setToggled(value);
     };
+    
 
     return (
         <div className={`app ${toggled ? 'toggled' : ''}`}>

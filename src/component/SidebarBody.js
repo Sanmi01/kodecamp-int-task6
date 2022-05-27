@@ -1,10 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { ProSidebar, Menu, MenuItem, SubMenu, SidebarHeader, SidebarFooter, SidebarContent } from "react-pro-sidebar";
 import "react-pro-sidebar/dist/css/styles.css";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from '../contexts/AuthContext';
 
 
 const SidebarBody = ({ collapsed, toggled, handleToggleSidebar}) => {
+  const [error, setError] = useState("")  
+  const { logout } = useAuth()
+  const navigate = useNavigate()
+
+  async function handleLogout() {
+    setError('')
     
+
+    try {
+      await logout()
+      navigate('/')
+    } catch (error) {
+      console.log(error)
+      setError('Failed to log out')
+    }
+  }
 
   return (
       <>
@@ -51,14 +68,12 @@ const SidebarBody = ({ collapsed, toggled, handleToggleSidebar}) => {
             padding: '20px 24px',
           }}
         >
-          <a
-            href="https://github.com/azouaoui-med/react-pro-sidebar"
-            target="_blank"
+          <p
             className="sidebar-btn"
-            rel="noopener noreferrer"
+            onClick={handleLogout}
           >
             Logout
-          </a>
+          </p>
         </div>
       </SidebarFooter>
       </ProSidebar>

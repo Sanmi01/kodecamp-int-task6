@@ -1,15 +1,58 @@
 import React, { useState } from "react";
-import { Container, Button } from "react-bootstrap";
+import { Container, Button, Alert} from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
 import KodeCampLogo from "../assets/images/logo.png"
 import "./Register.css";
+import { auth, provider } from '../firebase/Firebase-Config';
+import { getAuth, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { useAuth } from '../contexts/AuthContext';
 
 const Register = () => {
+  const { signUp } = useAuth()
+  const [error, setError ] = useState('')
+  const [loading, setLoading] = useState(false)
+  const navigate = useNavigate()
   const [formValues, setFormValues] = useState({
     fullName: "",
     email: "",
     password: "",
     confirmPassword: ""
   });
+
+
+  async function handleSubmitWithEmail() {
+    if(formValues.password !== formValues.confirmPassword) {
+      return setError('Passwords do not match')
+    }
+
+    try {
+      setError('')
+      setLoading(true)
+      await signUp(formValues.email, formValues.password)
+      navigate('/dashboard')
+    } catch (error) {
+      console.log(error)
+      setError('Failed to create an account')
+    }
+
+    setLoading(false)
+  }
+
+  async function googleAuth() {
+    signInWithPopup(auth, provider).then((result) => {
+      console.log(result)
+      const name = result.user.displayName
+      const email = result.user.email
+      const profilePic = result.user.photoURL
+  
+      localStorage.setItem("name", name)
+      localStorage.setItem("email", email)
+      localStorage.setItem("profilePic", profilePic)
+      navigate('/dashboard')
+    }).catch((error) => {
+      console.log(error)
+    })
+  }
 
   return (
     <>
@@ -27,6 +70,7 @@ const Register = () => {
           <div>
             <img src={KodeCampLogo} alt="logo" />
           </div>
+          {error && <Alert variant="danger">{error}</Alert>}
             <form>
             <div className="d-flex justify-content-between form-group m-3">
                 <input
@@ -85,11 +129,11 @@ const Register = () => {
                 />
               </div>
               <div className="text-end">
-                  <p>Already have an account? Login</p>
+                  <p>Already have an account? <Link to="/login">Log In</Link></p>
               </div>
               <div className="d-flex justify-content-between">
-                  <Button>Register</Button>
-                  <Button>Register with Google</Button>
+                  <Button disabled={loading} onClick={handleSubmitWithEmail}>Register</Button>
+                  <Button onClick={googleAuth}>Register with Google</Button>
               </div>
             </form>
           </div>

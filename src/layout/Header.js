@@ -8,7 +8,7 @@ const Header = () => {
         <>
             <Navbar collapseOnSelect expand="lg" id="header">
         <Container>
-          <Navbar.Brand as={Link} to="/kodecamp-int-task5">
+          <Navbar.Brand as={Link} to="/kodecamp-int-task6">
             Classroom
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -31,8 +31,8 @@ const Header = () => {
               </Nav.Link>
             </Nav>
             <Nav>
-                <Nav.Link as={Link} to="/">
-                    <Button variant="outline-secondary">Sign In</Button>
+                <Nav.Link as={Link} to="/login">
+                    <Button variant="outline-secondary">Log In</Button>
                 </Nav.Link>
             </Nav>
           </Navbar.Collapse>

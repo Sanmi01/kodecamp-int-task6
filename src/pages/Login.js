@@ -1,13 +1,36 @@
 import React, { useState } from "react";
-import { Container, Button } from "react-bootstrap";
-import KodeCampLogo from "../assets/images/logo.png"
+import { Container, Button, Alert } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
+import KodeCampLogo from "../assets/images/logo.png";
 import "./Login.css";
+import { useAuth } from '../contexts/AuthContext';
 
 const Login = () => {
+  const { login } = useAuth()
+  const [error, setError ] = useState('')
+  const [loading, setLoading] = useState(false)
+  const navigate = useNavigate()
   const [formValues, setFormValues] = useState({
     email: "",
     password: "",
   });
+
+  async function handleSubmitWithEmail() {
+
+    
+
+    try {
+      setError('')
+      setLoading(true)
+      await login(formValues.email, formValues.password)
+      navigate('/dashboard')
+    } catch (error) {
+      console.log(error)
+      setError('Failed to log in')
+    }
+
+    setLoading(false)
+  }
 
   return (
     <>
@@ -25,6 +48,7 @@ const Login = () => {
           <div>
             <img src={KodeCampLogo} alt="logo" />
           </div>
+          {error && <Alert variant="danger">{error}</Alert>}
             <form>
               <div className="d-flex justify-content-between form-group m-3">
                 <input
@@ -55,10 +79,10 @@ const Login = () => {
                 />
               </div>
               <div className="text-end">
-                  <p>Don't have an account? Register</p>
+                  <p>Don't have an account? <Link to="/register">Register</Link></p>
               </div>
               <div className="d-flex justify-content-between">
-                  <Button>Log In</Button>
+                  <Button disabled={loading} onClick={handleSubmitWithEmail}>Log In</Button>
                   <Button>Log In with Google</Button>
               </div>
             </form>
