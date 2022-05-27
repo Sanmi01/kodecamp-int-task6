@@ -5,13 +5,14 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import CoursesPage from './pages/CoursesPage';
+import SingleCourse from './pages/SingleCourse';
 
 
 function App() {
   return (
     <div className="App d-flex vh-100 justify-content-between row">
       <Header />
-      <CoursesPage />
+      <SingleCourse />
     </div>
   );
 }
