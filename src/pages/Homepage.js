@@ -1,10 +1,12 @@
 import React from 'react'
 import { Container } from 'react-bootstrap';
+import Header from '../layout/Header';
 
 const Homepage = () => {
     return (
         <>
-            <Container className="py-3 px-5">
+            <Header />
+            <Container className="py-3 px-5 h-100 homepage">
                 <div className="row p-3 align-items-center">
                 <div className="col-md-6 p-3">
                     <h1>Learn on your class schedule</h1>

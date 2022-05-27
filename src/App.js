@@ -6,13 +6,15 @@ import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import CoursesPage from './pages/CoursesPage';
 import SingleCourse from './pages/SingleCourse';
+import Profile from './pages/Profile';
 
 
 function App() {
   return (
     <div className="App d-flex vh-100 justify-content-between row">
-      <Header />
-      <SingleCourse />
+      {/* <Header /> */}
+      {/* <Register /> */}
+      <Homepage />
     </div>
   );
 }

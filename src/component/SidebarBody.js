@@ -32,9 +32,17 @@ const SidebarBody = ({ collapsed, toggled, handleToggleSidebar}) => {
         </div>
       </SidebarHeader>
   <SidebarContent>
-    <MenuItem>Classroom1</MenuItem>
-    <MenuItem>Classroom2</MenuItem>
-    <MenuItem>Classroom3</MenuItem>
+  <Menu>
+  <MenuItem style={{
+            padding: '0.5rem 0.6rem',
+          }}>Dashboard</MenuItem>
+    <MenuItem style={{
+            padding: '0.5rem 0.6rem',
+          }}>Courses</MenuItem>
+    <MenuItem style={{
+            padding: '0.5rem 0.6rem',
+          }}>Profile</MenuItem>
+  </Menu>
   </SidebarContent>
   <SidebarFooter style={{ textAlign: 'center' }}>
         <div

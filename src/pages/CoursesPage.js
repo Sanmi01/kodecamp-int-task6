@@ -11,7 +11,8 @@ const CoursesPage = () => {
         <>
             <div className="sideBar-usage">
             <Sidebar />
-            <div>
+            <div className="text-center my-auto mx-5">
+                <h2 className="text-white">Our Courses</h2>
                 <div className="d-flex justify-content-around flex-wrap">
                     {courseData.map((course, index) => (
                         <Course name={course.name} icon={course.icon} key={index} />

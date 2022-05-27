@@ -1,10 +1,14 @@
 .App {
 }
 
+.homepage {
+  background: linear-gradient(90deg, rgba(63,235,123,1) 35%, rgb(19, 116, 177) 100%);
+}
+
 .sideBar-usage {
-    height: fit-content;
   display: flex;
   position: relative;
+  background-color: rgb(2, 9, 24);
 }
 
 .sideBar-usage .btn-toggle {

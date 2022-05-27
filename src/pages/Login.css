@@ -1,3 +1,12 @@
+#login-page {
+    background: linear-gradient(90deg, rgba(63,235,123,1) 35%, rgb(19, 116, 177) 100%);
+}
+
+#login-page .login {
+    background-color: white;
+    border-radius: 3rem;
+}
+
 #login-page label {
     /* display: block !important; */
     margin: 0.25rem;
@@ -5,7 +14,10 @@
 
 #login-page input {
     background: #f1eeee;
-    border-radius: 25px;
-    padding: 5px 25px;
-    min-width: 80%;
+    border: none;
+  outline: none;
+    padding-bottom: 5px;
+  border-bottom: solid 2px gray;
+  margin-bottom: 30px;
+    min-width: 100%;
 }

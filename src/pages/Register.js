@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Container, Button } from "react-bootstrap";
+import KodeCampLogo from "../assets/images/logo.png"
 import "./Register.css";
 
 const Register = () => {
@@ -13,10 +14,9 @@ const Register = () => {
   return (
     <>
       <Container id="register-page">
-        <div className="row p-3 align-items-center">
+        <div className="m-5 p-5 register row p-3 align-items-center">
           <div className="col-md-6 p-3 text-center">
             <h1>Student Register</h1>
-            <p>make sure your account is secure</p>
             <img
               className="img-fluid"
               src="https://i.postimg.cc/JhxZ3ZGs/undraw-Sign-in-re-o58h.png"
@@ -24,10 +24,13 @@ const Register = () => {
             />
           </div>
           <div className="col-md-6 p-3 text-center">
+          <div>
+            <img src={KodeCampLogo} alt="logo" />
+          </div>
             <form>
             <div className="d-flex justify-content-between form-group m-3">
-                <label htmlFor="fullName">Full Name</label>
                 <input
+                  placeholder='Enter your full name'
                   type="text"
                   id="fullName"
                   required
@@ -40,8 +43,8 @@ const Register = () => {
                 />
               </div>
               <div className="d-flex justify-content-between form-group m-3">
-                <label htmlFor="email">Email</label>
                 <input
+                  placeholder='Enter your email'
                   type="email"
                   id="email"
                   required
@@ -54,8 +57,8 @@ const Register = () => {
                 />
               </div>
               <div className="d-flex justify-content-between form-group m-3">
-                <label htmlFor="password">Password</label>
                 <input
+                  placeholder='Enter your password'
                   type="password"
                   id="password"
                   required
@@ -68,8 +71,8 @@ const Register = () => {
                 />
               </div>
               <div className="d-flex justify-content-between form-group m-3">
-                <label htmlFor="confirmPassword">Confirm Password</label>
                 <input
+                  placeholder='Confirm Password'
                   type="password"
                   id="confirmPassword"
                   required
@@ -82,11 +85,11 @@ const Register = () => {
                 />
               </div>
               <div className="text-end">
-                  <p>Login</p>
+                  <p>Already have an account? Login</p>
               </div>
               <div className="d-flex justify-content-between">
-                  <button>Register</button>
-                  <button>Register with Google</button>
+                  <Button>Register</Button>
+                  <Button>Register with Google</Button>
               </div>
             </form>
           </div>
