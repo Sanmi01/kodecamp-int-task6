@@ -17,7 +17,7 @@ const Homepage = () => {
                     officia excepturi nostrum. Officia veritatis corrupti libero.</p>
                 </div>
                 <div className="col-md-6 p-3">
-                    <img className="img-fluid" src="https://i.postimg.cc/667zCLZ8/pexels-anastasiya-gepp-1462630-removebg-preview.png" alt="student-image" />
+                    <img className="img-fluid" src="https://i.postimg.cc/667zCLZ8/pexels-anastasiya-gepp-1462630-removebg-preview.png" alt="student" />
                 </div>
                 </div>
             </Container>

@@ -33,8 +33,7 @@ const Register = () => {
       localStorage.setItem("name", formValues.fullName)
       navigate('/dashboard')
     } catch (error) {
-      console.log(error)
-      setError('Failed to create an account')
+      setError(error.message)
     }
 
     setLoading(false)

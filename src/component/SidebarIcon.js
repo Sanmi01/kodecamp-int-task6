@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaHeart, FaBars } from 'react-icons/fa';
+import { FaBars } from 'react-icons/fa';
 
 const SidebarIcon = ({ collapsed, handleToggleSidebar, handleCollapsedChange,}) => {
     return (

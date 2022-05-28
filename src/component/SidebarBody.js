@@ -1,31 +1,25 @@
-import React, { useState } from "react";
-import { ProSidebar, Menu, MenuItem, SubMenu, SidebarHeader, SidebarFooter, SidebarContent } from "react-pro-sidebar";
+import React from "react";
+import { ProSidebar, Menu, MenuItem, SidebarHeader, SidebarFooter, SidebarContent } from "react-pro-sidebar";
 import "react-pro-sidebar/dist/css/styles.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from '../contexts/AuthContext';
 
 
 const SidebarBody = ({ collapsed, toggled, handleToggleSidebar}) => {
-  const [error, setError] = useState("")  
   const { logout } = useAuth()
   const navigate = useNavigate()
 
   async function handleLogout() {
-    setError('')
-    
-
     try {
       await logout()
       navigate('/')
     } catch (error) {
-      console.log(error)
-      setError('Failed to log out')
+      alert(error.message)
     }
   }
 
   return (
       <>
-    {/* <div className="h-100"> */}
       <ProSidebar
         collapsed={collapsed}
       toggled={toggled}

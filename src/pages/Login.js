@@ -25,8 +25,7 @@ const Login = () => {
       await login(formValues.email, formValues.password)
       navigate('/dashboard')
     } catch (error) {
-      console.log(error)
-      setError('Failed to log in')
+      setError(error.message)
     }
 
     setLoading(false)
@@ -36,7 +35,7 @@ const Login = () => {
     signInWithPopup(auth, provider).then((result) => {
       navigate('/dashboard')
     }).catch((error) => {
-      console.log(error)
+      setError(error.message)
     })
   }
 

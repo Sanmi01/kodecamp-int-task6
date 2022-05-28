@@ -12,7 +12,7 @@ const SingleCourse = () => {
         <Sidebar />
         <div className="m-5">
           <Link to="/coursePages"><Button>Go Back</Button></Link>
-            {courseData.filter(course => course.id == id).map((course, index) => (
+            {courseData.filter(course => course.id === id).map((course, index) => (
             <div className="text-white my-3" key={index}>
               <h2>Introduction to {course.name} </h2>
               <div className="my-3">
