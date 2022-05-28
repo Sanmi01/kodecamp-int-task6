@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import KodeCampLogo from "../assets/images/logo.png";
 import "./Login.css";
 import { useAuth } from '../contexts/AuthContext';
+import { signInWithPopup } from "firebase/auth";
+import { auth, provider } from '../firebase/Firebase-Config';
 
 const Login = () => {
   const { login } = useAuth()
@@ -15,10 +17,8 @@ const Login = () => {
     password: "",
   });
 
-  async function handleSubmitWithEmail() {
-
-    
-
+  async function handleSubmitWithEmail(e) {
+    e.preventDefault()
     try {
       setError('')
       setLoading(true)
@@ -30,6 +30,14 @@ const Login = () => {
     }
 
     setLoading(false)
+  }
+
+  async function googleAuth() {
+    signInWithPopup(auth, provider).then((result) => {
+      navigate('/dashboard')
+    }).catch((error) => {
+      console.log(error)
+    })
   }
 
   return (
@@ -49,7 +57,7 @@ const Login = () => {
             <img src={KodeCampLogo} alt="logo" />
           </div>
           {error && <Alert variant="danger">{error}</Alert>}
-            <form>
+            <form onSubmit={handleSubmitWithEmail}>
               <div className="d-flex justify-content-between form-group m-3">
                 <input
                 placeholder='Enter your email'
@@ -85,8 +93,8 @@ const Login = () => {
                   <p><Link to="/forgot-password">Forgot Password?</Link></p>
               </div>
               <div className="d-flex justify-content-between">
-                  <Button disabled={loading} onClick={handleSubmitWithEmail}>Log In</Button>
-                  <Button>Log In with Google</Button>
+                  <Button disabled={loading} type="submit">Log In</Button>
+                  <Button onClick={googleAuth}>Log In with Google</Button>
               </div>
             </form>
           </div>

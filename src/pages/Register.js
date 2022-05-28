@@ -20,7 +20,8 @@ const Register = () => {
   });
 
 
-  async function handleSubmitWithEmail() {
+  async function handleSubmitWithEmail(e) {
+    e.preventDefault()
     if(formValues.password !== formValues.confirmPassword) {
       return setError('Passwords do not match')
     }
@@ -41,14 +42,6 @@ const Register = () => {
 
   async function googleAuth() {
     signInWithPopup(auth, provider).then((result) => {
-      console.log(result)
-      const name = result.user.displayName
-      const email = result.user.email
-      const profilePic = result.user.photoURL
-  
-      localStorage.setItem("name", name)
-      localStorage.setItem("email", email)
-      localStorage.setItem("profilePic", profilePic)
       navigate('/dashboard')
     }).catch((error) => {
       console.log(error)
@@ -72,7 +65,7 @@ const Register = () => {
             <img src={KodeCampLogo} alt="logo" />
           </div>
           {error && <Alert variant="danger">{error}</Alert>}
-            <form>
+            <form onSubmit={handleSubmitWithEmail}>
             <div className="d-flex justify-content-between form-group m-3">
                 <input
                   placeholder='Enter your full name'
@@ -133,7 +126,7 @@ const Register = () => {
                   <p>Already have an account? <Link to="/login">Log In</Link></p>
               </div>
               <div className="d-flex justify-content-between">
-                  <Button disabled={loading} onClick={handleSubmitWithEmail}>Register</Button>
+                  <Button disabled={loading} type="submit">Register</Button>
                   <Button onClick={googleAuth}>Register with Google</Button>
               </div>
             </form>
