@@ -24,6 +24,7 @@ function App() {
           <Route path="/profile" element={ <PrivateRoute> <Profile /> </PrivateRoute> }></Route>
           <Route path="/dashboard" element={ <PrivateRoute> <Dashboard /> </PrivateRoute> } ></Route>
           <Route path="/coursePages" element={ <PrivateRoute> <CoursesPage /> </PrivateRoute>} ></Route>
+          <Route path="/dashboard/course/:id" element={ <PrivateRoute> <SingleCourse /> </PrivateRoute>} ></Route>
         </Routes>
       </div>
     </AuthProvider>

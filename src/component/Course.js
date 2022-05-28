@@ -1,9 +1,9 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 
-const Course = ({name, icon}) => {
+const Course = ({name, icon, onClick}) => {
     return (
-        <Card  className="text-center" style={{ width: '15rem', padding: '1rem', margin:'2rem'}}>
+        <Card onClick={onClick}  className="text-center" style={{ width: '15rem', padding: '1rem', margin:'2rem'}}>
         <p>{icon}</p>
         <Card.Body>
           <Card.Title>{name}</Card.Title>
