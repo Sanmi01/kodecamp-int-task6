@@ -78,8 +78,11 @@ const Login = () => {
                   }
                 />
               </div>
-              <div className="text-end">
+              <div className="text-center">
                   <p>Don't have an account? <Link to="/register">Register</Link></p>
+              </div>
+              <div className="text-center">
+                  <p><Link to="/forgot-password">Forgot Password?</Link></p>
               </div>
               <div className="d-flex justify-content-between">
                   <Button disabled={loading} onClick={handleSubmitWithEmail}>Log In</Button>
