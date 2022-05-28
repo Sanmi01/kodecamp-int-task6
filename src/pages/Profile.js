@@ -1,7 +1,10 @@
 import React from 'react';
 import Sidebar from "../component/Sidebar";
+import { useAuth } from '../contexts/AuthContext';
 
 const Profile = () => {
+    const { currentUser } = useAuth()
+
     return (
         <>
             <div className="sideBar-usage">
@@ -15,16 +18,16 @@ const Profile = () => {
             width: '30rem',
             height: '10rem'
           }}>
-                        <img className="img-fluid rounded-circle" src={localStorage.getItem("profilePic")} alt="img" />
+                        {currentUser.photoURL ? <img className="img-fluid rounded-circle" src={currentUser.photoURL} alt="img" /> : <p>No Profile Picture to display</p>}
                         </div>
                         <div>
                             <div className="d-flex justify-content-between">
                                 <p>Full name</p>
-                                <p>{localStorage.getItem("name")}</p>
+                                <p>{currentUser.displayName ? currentUser.displayName: localStorage.getItem("name")}</p>
                             </div>
                             <div className="d-flex justify-content-between">
                                 <p>Email</p>
-                                <p>{localStorage.getItem("email")}</p>
+                                <p>{currentUser.email}</p>
                             </div>
                         </div>
                     </div>

@@ -36,6 +36,14 @@ function App() {
               </PrivateRoute>
             }
           ></Route>
+          <Route
+            path="/coursePages"
+            element={
+              <PrivateRoute>
+                <CoursesPage />
+              </PrivateRoute>
+            }
+          ></Route>
         </Routes>
       </div>
     </AuthProvider>

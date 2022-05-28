@@ -52,13 +52,13 @@ const SidebarBody = ({ collapsed, toggled, handleToggleSidebar}) => {
   <Menu>
   <MenuItem style={{
             padding: '0.5rem 0.6rem',
-          }}>Dashboard</MenuItem>
+          }}><Link to="/dashboard">Dashboard</Link></MenuItem>
     <MenuItem style={{
             padding: '0.5rem 0.6rem',
-          }}>Courses</MenuItem>
+          }}><Link to="/coursePages">Courses</Link></MenuItem>
     <MenuItem style={{
             padding: '0.5rem 0.6rem',
-          }}>Profile</MenuItem>
+          }}><Link to="/profile">Profile</Link></MenuItem>
   </Menu>
   </SidebarContent>
   <SidebarFooter style={{ textAlign: 'center' }}>
@@ -69,7 +69,7 @@ const SidebarBody = ({ collapsed, toggled, handleToggleSidebar}) => {
           }}
         >
           <p
-            className="sidebar-btn"
+            className="sidebar-btn logout-button"
             onClick={handleLogout}
           >
             Logout

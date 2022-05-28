@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import KodeCampLogo from "../assets/images/logo.png"
 import "./Register.css";
 import { auth, provider } from '../firebase/Firebase-Config';
-import { getAuth, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { signInWithPopup } from "firebase/auth";
 import { useAuth } from '../contexts/AuthContext';
 
 const Register = () => {
@@ -29,6 +29,7 @@ const Register = () => {
       setError('')
       setLoading(true)
       await signUp(formValues.email, formValues.password)
+      localStorage.setItem("name", formValues.fullName)
       navigate('/dashboard')
     } catch (error) {
       console.log(error)
