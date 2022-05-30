@@ -8,13 +8,13 @@ const Header = () => {
         <>
             <Navbar collapseOnSelect expand="lg" id="header">
         <Container>
-          <Navbar.Brand as={Link} to="/kodecamp-int-task6">
+          <Navbar.Brand as={Link} to="/">
             Classroom
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav" className="">
             <Nav defaultActiveKey="" className="mx-auto">
-              <Nav.Link as={Link} to="/kodecamp-int-task5">
+              <Nav.Link as={Link} to="/">
                 Home
               </Nav.Link>
               <Nav.Link as={Link} to="/about">
