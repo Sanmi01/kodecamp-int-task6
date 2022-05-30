@@ -18,7 +18,7 @@ function App() {
     <AuthProvider>
       <div className="App d-flex vh-100 justify-content-between row">
         <Routes>
-          <Route path="/kodecamp-int-task6" element={ <PublicRoute> <Homepage /> </PublicRoute> }></Route>
+          <Route path="/" element={ <PublicRoute> <Homepage /> </PublicRoute> }></Route>
           <Route path="/login" element={ <PublicRoute> <Login /> </PublicRoute> }></Route>
           <Route path="/register" element={ <PublicRoute> <Register /> </PublicRoute> }></Route>
           <Route path="/forgot-password" element={ <PublicRoute> <ForgotPassword /> </PublicRoute> }></Route>
