@@ -12,6 +12,7 @@ import PublicRoute from "./component/PublicRoute";
 import PrivateRoute from "./component/PrivateRoute";
 import { AuthProvider } from "./contexts/AuthContext";
 
+
 function App() {
   return (
     <AuthProvider>
